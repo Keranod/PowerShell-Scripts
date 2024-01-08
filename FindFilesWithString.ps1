@@ -1,0 +1,1 @@
+Get-ChildItem -Recurse | Select-String "finally" -List | Select Path

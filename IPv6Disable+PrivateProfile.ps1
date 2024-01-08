@@ -1,0 +1,2 @@
+﻿Disable-NetAdapterBinding -InterfaceAlias (Get-NetConnectionProfile | Select-Object -ExpandProperty interfacealias) –ComponentID ms_tcpip6
+Set-NetConnectionProfile -name (Get-NetConnectionProfile | Select-Object -ExpandProperty Name) -NetworkCategory Private
