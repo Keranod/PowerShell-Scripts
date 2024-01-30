@@ -3,9 +3,9 @@ $outlook = new-object -com Outlook.Application -ea 1
 $contactsObject = $outlook.session.GetDefaultFolder(10)
 
 # Login, password and path to access csv with contacts
-$user = 'loughspark\itps'
-$password = 'itps'
-$csvDirectory = '\\excelsior-sf\pcdisk\mail'
+$user = ''
+$password = ''
+$csvDirectory = ''
 
 # Get all properties from new item in contacts to have a list of them
 function Get-ContactProperties 
@@ -33,7 +33,7 @@ $latestContactsList = Import-Csv -Path "$csvDirectory\ContactList.csv"
 $contactsListModifyTime = (Get-ItemProperty -Path "$csvDirectory\ContactList.csv").LastWriteTime
 
 # Check if 'R & D' contact exists, if not prompt for contacts update, if yes check if CustomCreationTime is different than contactslistmodifytime, is yes prompt for update
-$rndContact = $contactsObject.Items.Find("[Email1Address] = 'rnd@preci-spark.uk.com'")
+$rndContact = $contactsObject.Items.Find("[Email1Address] = 'rnd@'")
 if (!$rndContact) {
     $rndContact = $contactsObject.Items.Find("[FullName] = 'R & D'")
 }
@@ -79,7 +79,7 @@ foreach ($contact in $latestContactsList) {
 }
 
 # Get 'R & D' contact and change/create CustomCreationTime to contacts modify date so it is a reference is contact list needs updating
-$rndContact = $contactsObject.Items.Find("[Email1Address] = 'rnd@preci-spark.uk.com'")
+$rndContact = $contactsObject.Items.Find("[Email1Address] = 'rnd@'")
 if (!$rndContact) {
     $rndContact = $contactsObject.Items.Find("[FullName] = 'R & D'")
 }
