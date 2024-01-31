@@ -1,5 +1,8 @@
 ﻿<# Create and use with a shortcut with target set to:
  C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -WindowStyle hidden -ExecutionPolicy Bypass "Path\ExcelControlledByScript.ps1" -spreadsheetPath "spreadsheet file path"
+ Mainly created to bypass limitations of shared workbooks where either they can update on minimum 5min interval or when saved.
+ With this script you can save as often as wanted.
+ Probably even better option to be sure that spreadsheet is saved instead of using VBScripts or macros.
 #>
 
 param(
