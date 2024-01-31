@@ -1,7 +1,7 @@
-$PCs = Get-Content -Path "C:\Users\konradk\Documents\TXT\PCs.txt" #variable containing list of PCs
+$PCs = Get-Content -Path "PCs.txt" #variable containing list of PCs
 
 $Count = $PCs.Count
 
 for($i=0;$i -lt $count;$i++){
-    If(Test-Connection –BufferSize 32 –Count 1 –quiet –ComputerName $PCs[$i]){$PCs[$i]}
+    If(Test-Connection â€“BufferSize 32 â€“Count 1 â€“quiet â€“ComputerName $PCs[$i]){$PCs[$i]}
 }
